@@ -1,6 +1,5 @@
 CC=gcc
 CFLAGS=-Wall -Itests/include -g -fPIC -std=c99
-ACFLAGS=-Wall -Itests/autograder/include -g -fPIC -std=c99
 
 EX1_SRC=\
 	ex1/flip_bit.c \
@@ -62,19 +61,19 @@ bit_ops: $(EX1_OBJ) $(EX1_TEST_OBJ)
 	$(CC) $(CFLAGS) -o $@ $?
 
 bit_ops_autograder: $(EX1_OBJ) $(EX1_A_OBJ)
-	$(CC) $(ACFLAGS) -o $@ $?
+	$(CC) $(CFLAGS) -o $@ $?
 
 lfsr: $(EX2_OBJ) $(EX2_TEST_OBJ)
 	$(CC) $(CFLAGS) -o $@ $?
 
 lfsr_autograder: $(EX2_OBJ) $(EX2_A_OBJ)
-	$(CC) $(ACFLAGS) -o $@ $?
+	$(CC) $(CFLAGS) -o $@ $?
 
 vector: $(EX3_OBJ) $(EX3_TEST_OBJ)
 	$(CC) $(CFLAGS) -o $@ $?
 
 vector_autograder: $(EX3_OBJ) $(EX3_A_OBJ)
-	$(CC) $(ACFLAGS) -o $@ $?
+	$(CC) $(CFLAGS) -o $@ $?
 
 $(OBJ): %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
@@ -83,10 +82,10 @@ $(OBJ_TEST): %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(OBJ_A): %.o: %.c
-	$(CC) $(ACFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(CONV): %_conv.c: %.c
-	$(CC) $(ACFLAGS) -Itests/autograder/fake -E $< > $@
+	$(CC) $(CFLAGS) -Itests/autograder/fake -E $< > $@
 
 .PHONY: clean
 
