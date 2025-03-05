@@ -2,6 +2,15 @@
 bit_ops
 lfsr
 vector
+lfsr_autograder
+bits_ops_autograder
+vector_autograder
+ex1/flip_bit_conv.c
+ex1/get_bit_conv.c
+ex1/set_bit_conv.c
+ex2/lfsr_calculate_conv.c
+ex3/vector_conv.c
+results.json
 
 # Prerequisites
 *.d
